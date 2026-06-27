@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [main]
   workflow_call:
-
 # CI flake mitigation:
 # ci.yml is triggered TWICE per PR on the same commit — once directly via
 # the `pull_request` trigger above ("Frontend Tests & Build" check) and once
@@ -32,7 +31,7 @@ concurrency:
 jobs:
   frontend:
     name: Frontend Tests & Build
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-medium-4c-8g
     defaults:
       run:
         working-directory: frontend
@@ -52,7 +51,7 @@ jobs:
 
   backend:
     name: Backend Lint & Test
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-medium-4c-8g
     steps:
       - uses: actions/checkout@v4
       - name: Run secret scan
