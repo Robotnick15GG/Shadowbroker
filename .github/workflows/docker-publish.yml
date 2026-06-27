@@ -18,7 +18,7 @@ jobs:
 
   build-frontend:
     needs: ci-gate
-    runs-on: ${{ matrix.runner }}
+    runs-on: tenki-standard-medium-4c-8g
     permissions:
       contents: read
       packages: write
@@ -74,7 +74,7 @@ jobs:
   merge-frontend:
     if: github.event_name != 'pull_request'
     needs: build-frontend
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-medium-4c-8g
     permissions:
       contents: read
       packages: write
@@ -109,7 +109,7 @@ jobs:
 
   build-backend:
     needs: ci-gate
-    runs-on: ${{ matrix.runner }}
+    runs-on: tenki-standard-medium-4c-8g
     permissions:
       contents: read
       packages: write
@@ -166,7 +166,7 @@ jobs:
   merge-backend:
     if: github.event_name != 'pull_request'
     needs: build-backend
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-medium-4c-8g
     permissions:
       contents: read
       packages: write
